@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -22,8 +23,8 @@ public class TextBoxTest {
         $("#firstName").setValue("Sergei");
         $("#lastName").setValue("Kashtuev");
         $("#userEmail").setValue("kashtuev@gmail.com");
-        $("#пол").setValue("");
-        $("#userNumber").setValue("");
+        $("#genterWrapper").find(byText("Male")).click();
+        $("#userNumber").setValue("9505705298");
         $("#датарождения").setValue("");
         $("#сабджектс").setValue("");
         $("#хобби").setValue("");
