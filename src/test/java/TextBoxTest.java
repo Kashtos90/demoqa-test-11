@@ -38,6 +38,8 @@ public class TextBoxTest {
         $(byText("Delhi")).click();
         $("#submit").click();
 
-        $("#output").shouldHave(text("Sergei"),text("Kashtuev"), text("kashtuev@gmail.com"));
+        $(".modal-content").shouldHave(text("Sergei"), text("Kashtuev"), text("kashtuev@gmail.com"),
+                text("Male"), text("9515705298"), text("January"), text("1990"),
+                text("29"),text("English"),text("mexico.jpg"),text("Russia"),text("NCR"),text("Delhi"));
     }
 }
