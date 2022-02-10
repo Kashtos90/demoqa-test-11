@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxTest {
 
@@ -24,14 +23,19 @@ public class TextBoxTest {
         $("#lastName").setValue("Kashtuev");
         $("#userEmail").setValue("kashtuev@gmail.com");
         $("#genterWrapper").find(byText("Male")).click();
-        $("#userNumber").setValue("9505705298");
-        $("#датарождения").setValue("");
-        $("#сабджектс").setValue("");
-        $("#хобби").setValue("");
-        $("#uploadPicture").setValue("");
-        $("#currenAddress").setValue("Russia");
-        $("#селектштата").setValue("");
-        $("#селектгорода").setValue("");
+        $("#userNumber").setValue("9515705298");
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("January");
+        $(".react-datepicker__year-select").selectOption("1990");
+        $$(".react-datepicker__day").find(text("29")).click();
+        $("#subjectsInput").setValue("English").pressEnter();
+        $(byText("Music")).click();
+        $("#uploadPicture").uploadFromClasspath("mexico.jpg");
+        $("#currentAddress").setValue("Russia");
+        $("#state").click();
+        $(byText("NCR")).click();
+        $("#city").click();
+        $(byText("Delhi")).click();
         $("#submit").click();
 
         $("#output").shouldHave(text("Sergei"),text("Kashtuev"), text("kashtuev@gmail.com"));
