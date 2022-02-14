@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -6,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TextBoxTest {
+public class RegistrationFormWithPageObjectsTests {
 
     @BeforeAll
     static void beforeAll() {
@@ -18,7 +20,6 @@ public class TextBoxTest {
     void succesFillTest() {
         open("/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
-
         $("#firstName").setValue("Sergei");
         $("#lastName").setValue("Kashtuev");
         $("#userEmail").setValue("kashtuev@gmail.com");
@@ -43,3 +44,4 @@ public class TextBoxTest {
                 text("29"),text("English"),text("mexico.jpg"),text("Russia"),text("NCR"),text("Delhi"));
     }
 }
+
