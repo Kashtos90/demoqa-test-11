@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -17,9 +18,10 @@ public class RegistrationFormWithPageObjectsTests {
     }
 
     @Test
-    void succesFillTest() {
+    void successFillTest() {
         open("/automation-practice-form");
-        $(".main-header").shouldHave(text("Practice Form"));
+
+        RegistrationPage.setFirstName("Sergei");
         $("#firstName").setValue("Sergei");
         $("#lastName").setValue("Kashtuev");
         $("#userEmail").setValue("kashtuev@gmail.com");
