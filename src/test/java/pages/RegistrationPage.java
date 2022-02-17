@@ -69,13 +69,13 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage selectHobbies(String hobbyOne) {
-        $(byText(hobbyOne)).click();
+    public RegistrationPage selectHobbies(String hobby) {
+        $(byText(hobby)).click();
         return this;
     }
 
-    public RegistrationPage uploadImage(String fileName) {
-        chooseFileButton.uploadFromClasspath(fileName);
+    public RegistrationPage uploadImage(String picture) {
+        chooseFileButton.uploadFromClasspath(picture);
         return this;
     }
 
