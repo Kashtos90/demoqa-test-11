@@ -64,14 +64,13 @@ public class RegistrationPage {
     }
 
     public RegistrationPage selectSubject(String subject) {
-        subjectsChoice.sendKeys("a");
+        subjectsChoice.sendKeys("e");
         $(byText(subject)).click();
         return this;
     }
 
-    public RegistrationPage selectHobbies(String hobbyOne, String hobbyTwo) {
+    public RegistrationPage selectHobbies(String hobbyOne) {
         $(byText(hobbyOne)).click();
-        $(byText(hobbyTwo)).click();
         return this;
     }
 
@@ -102,9 +101,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage verifyForm(String label, String value) {
+    public RegistrationPage verifyForm(String fieldName, String value) {
         filledModalForm.shouldBe(visible);
-        filledModalForm.$(byText(label)).parent().shouldHave(text(value));
+        filledModalForm.$(byText(fieldName)).parent().shouldHave(text(value));
         return this;
     }
 }
