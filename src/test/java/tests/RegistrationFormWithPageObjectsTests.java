@@ -21,8 +21,7 @@ public class RegistrationFormWithPageObjectsTests {
     void successFillTest() {
         open("/automation-practice-form");
 
-        RegistrationPage.setFirstName("Sergei");
-        $("#firstName").setValue("Sergei");
+        new RegistrationPage().setFirstName("Sergei");
         $("#lastName").setValue("Kashtuev");
         $("#userEmail").setValue("kashtuev@gmail.com");
         $("#genterWrapper").find(byText("Male")).click();

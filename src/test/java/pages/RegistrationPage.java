@@ -12,89 +12,100 @@ public class RegistrationPage {
 
     private CalendarComponent calendarComponent = new CalendarComponent();
 
-    private SelenideElement
-            mainHeader = $(".main-header"),
-            firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName"),
-            emailInput = $("#userEmail"),
-            birthDateInput = $("#dateOfBirthInput"),
-            mobileNumberInput = $("#userNumber"),
-            subjectsChoice = $("#subjectsInput"),
-            chooseFileButton = $("#uploadPicture"),
-            currentAddressInput = $("#currentAddress"),
-            stateChoice = $("#state"),
-            cityChoice = $("#city"),
-            submitButton = $("#submit"),
-            filledModalForm = $(".modal-content");
+    private SelenideElement mainHeader = $(".main-header");
+    private SelenideElement firstNameInput = $("#firstName");
+    private SelenideElement lastNameInput = $("#lastName");
+    private SelenideElement emailInput = $("#userEmail");
+    private SelenideElement birthDateInput = $("#dateOfBirthInput");
+    private SelenideElement mobileNumberInput = $("#userNumber");
+    private SelenideElement subjectsChoice = $("#subjectsInput");
+    private SelenideElement chooseFileButton = $("#uploadPicture");
+    private SelenideElement currentAddressInput = $("#currentAddress");
+    private SelenideElement stateChoice = $("#state");
+    private SelenideElement cityChoice = $("#city");
+    private SelenideElement submitButton = $("#submit");
+    private SelenideElement filledModalForm = $(".modal-content");
 
-    public void openPage() {
+    public RegistrationPage openPage() {
         open("/automation-practice-form");
         mainHeader.shouldHave(text("Practice Form"));
+        return this;
     }
 
-     void setFirstName(String firstName) {
+    public RegistrationPage setFirstName(String firstName) {
         firstNameInput.setValue(firstName);
+        return this;
     }
 
-    public void setLastName(String lastName) {
+    public RegistrationPage setLastName(String lastName) {
         lastNameInput.setValue(lastName);
+        return this;
     }
 
-    public void setEmail(String email) {
+    public RegistrationPage setEmail(String email) {
         emailInput.setValue(email);
+        return this;
     }
 
-    public void setGender(String gender) {
+    public RegistrationPage setGender(String gender) {
         $(byText(gender)).click();
-
+        return this;
     }
 
-    public void setMobileNumber(String number) {
+    public RegistrationPage setMobileNumber(String number) {
         mobileNumberInput.setValue(number);
-
+        return this;
     }
 
-    public void setBirthDate(String day, String month, String year) {
+    public RegistrationPage setBirthDate(String day, String month, String year) {
         birthDateInput.click();
         calendarComponent.setBirthDate(day, month, year);
-
+        return this;
     }
 
-    public void selectSubject(String subject) {
+    public RegistrationPage selectSubject(String subject) {
         subjectsChoice.sendKeys("a");
         $(byText(subject)).click();
+        return this;
     }
 
-    public void selectHobbies(String hobbyOne, String hobbyTwo) {
+    public RegistrationPage selectHobbies(String hobbyOne, String hobbyTwo) {
         $(byText(hobbyOne)).click();
         $(byText(hobbyTwo)).click();
+        return this;
     }
 
-    public void uploadImage(String fileName) {
+    public RegistrationPage uploadImage(String fileName) {
         chooseFileButton.uploadFromClasspath(fileName);
+        return this;
     }
 
-    public void setCurrentAddress(String address) {
+    public RegistrationPage setCurrentAddress(String address) {
         currentAddressInput.setValue(address);
+        return this;
     }
 
-    public void selectState(String state) {
+    public RegistrationPage selectState(String state) {
         stateChoice.scrollTo().click();
         $(byText(state)).click();
+        return this;
     }
 
-    public void selectCity(String city) {
+    public RegistrationPage selectCity(String city) {
         cityChoice.click();
         $(byText(city)).click();
+        return this;
     }
 
-    public void submitForm() {
+    public RegistrationPage submitForm() {
         submitButton.click();
+        return this;
     }
 
-    public void verifyForm(String label, String value) {
+    public RegistrationPage verifyForm(String label, String value) {
         filledModalForm.shouldBe(visible);
         filledModalForm.$(byText(label)).parent().shouldHave(text(value));
+        return this;
     }
 }
 
