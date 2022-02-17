@@ -11,6 +11,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormWithPageObjectsTests {
 
+    RegistrationPage registrationPage = new RegistrationPage();
+
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -21,8 +23,8 @@ public class RegistrationFormWithPageObjectsTests {
     void successFillTest() {
         open("/automation-practice-form");
 
-        new RegistrationPage().setFirstName("Sergei");
-        $("#lastName").setValue("Kashtuev");
+        registrationPage.setFirstName("Sergei");
+        registrationPage.setLastName("Kashtuev");
         $("#userEmail").setValue("kashtuev@gmail.com");
         $("#genterWrapper").find(byText("Male")).click();
         $("#userNumber").setValue("9515705298");
