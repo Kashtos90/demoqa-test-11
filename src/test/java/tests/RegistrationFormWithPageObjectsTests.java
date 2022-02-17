@@ -52,16 +52,16 @@ public class RegistrationFormWithPageObjectsTests {
                         .selectCity(city)
                         .submitForm()
 
-                .verifyForm("Student Name", firstName+lastName)
+                .verifyForm("Student Name", firstName+ " " + lastName)
                 .verifyForm("Student Email", email)
                 .verifyForm("Gender", gender)
                 .verifyForm("Mobile", number)
-                .verifyForm("Date of Birth", day + month + year)
+                .verifyForm("Date of Birth", day + " " + month + "," + year)
                 .verifyForm("Subjects", subject)
                 .verifyForm("Hobbies", hobby)
                 .verifyForm("Picture", picture)
                 .verifyForm("Address", address)
-                .verifyForm("State and City", state + city);
+                .verifyForm("State and City", state + " " + city);
 
     }
 }
